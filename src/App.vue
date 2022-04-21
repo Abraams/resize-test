@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="$device.isMobile">
+      mobile
+    </div>
+    <div v-if="$device.isDesktop">
+      desktop
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import {deviceObserverState} from "@/services/DeviceResizeObserver";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  // data() {
+  //   return {
+  //     deviceObserverState  // Реализация через state
+  //   }
+  // }
+  mounted() {
+    console.log(this.$device) // Реализация через plugin
   }
 }
 </script>
